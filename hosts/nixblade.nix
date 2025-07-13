@@ -61,15 +61,13 @@
   hardware.firmware = with pkgs; [
     linux-firmware  # Intel Wi-Fi + Bluetooth + generic blobs
     sof-firmware    # Intel Raptor Lake + SOF audio support
-  ]
+  ];
 
   # OPENRAZER
   hardware.openrazer = {
     enable = true;
     users = [ "xpie" ];
   };
-
-  services.razer-daemon.enable = true;
 
   # PRINTING
   services.printing.enable = true;
