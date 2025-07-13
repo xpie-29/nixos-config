@@ -74,6 +74,10 @@
     jack.enable = true;
   };
 
+  # BLUETOOTH
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   # USER ACCOUNT
   users.users.xpie = {
     isNormalUser = true;
