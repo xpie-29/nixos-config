@@ -12,7 +12,7 @@
     enable = true;
     oh-my-zsh = {
       enable = true;
-      theme = "jonathan";
+      theme = "robbyrussell";
       plugins = [ "git" "z" "extract" ];
     };
 
@@ -27,6 +27,16 @@
       # Optional: adjust colors for autosuggestions
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     '';
+  };
+
+  # VSCODIUM
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      dracula-theme.theme-dracula
+      yzhang.markdown-all-in-one
+    ];
   };
 
   # PACKAGES
