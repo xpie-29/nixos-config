@@ -37,9 +37,7 @@
   # NVIDIA DRIVERS
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-
   hardware.graphics.enable = true;
-
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -51,15 +49,27 @@
   # GRAPHICAL ENVIRONMENT
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-
   services.desktopManager.plasma6.enable = true;
-
   environment.sessionVariables = {
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1"; # for Hyprland workaround
     GBM_BACKEND = "nvidia-drm";
     __GL_GSYNC_ALLOWED = "1";
   };
+
+  # FIRMWARE
+  hardware.firmware = with pkgs; [
+    linux-firmware  # Intel Wi-Fi + Bluetooth + generic blobs
+    sof-firmware    # Intel Raptor Lake + SOF audio support
+  ]
+
+  # OPENRAZER
+  hardware.openrazer = {
+    enable = true;
+    users = [ "xpie" ];
+  };
+
+  services.razer-daemon.enable = true;
 
   # PRINTING
   services.printing.enable = true;
@@ -71,7 +81,6 @@
     alsa.enable = true;
     jack.enable = true;
   };
-
 
   # USER ACCOUNT
   users.users.xpie = {
@@ -86,7 +95,6 @@
 
   # SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [
-
     # Editors
     vim
     nano
@@ -97,6 +105,7 @@
     curl
     htop
     glxinfo
+    polychromatic # Razer laptop/peripherals lighting control
   ];
 
   # PROGRAMS
@@ -117,5 +126,4 @@
 
   # DO NOT CHANGE THE SYSTEM.STATEVERSION
   system.stateVersion = "25.05";
-
 }
