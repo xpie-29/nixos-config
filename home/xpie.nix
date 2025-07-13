@@ -51,6 +51,11 @@
     neovim
     kitty
     kitty-themes
+
+    # Gaming
+    protonup-qt
+    discord
+
   # starship
   ];
 }
