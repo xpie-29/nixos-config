@@ -83,7 +83,7 @@
   users.users.xpie = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
-    initialPassword = "Fantasy7!.";
+    initialPassword = "T3mpP@ssw3rd";
     packages = with pkgs; [
     
     ];
