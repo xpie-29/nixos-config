@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "xpie";
-  home.homeDirectory = "/home/xpie";
+  home.homeDirectory = lib.mkForce "/home/xpie";
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
