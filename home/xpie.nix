@@ -15,27 +15,21 @@
       theme = "jonathan";
       plugins = [ "git" "z" "extract" ];
     };
+
+    # Enable autosuggestions
+    autosuggestion.enable = true;
+
+    # Enable syntax highlighting
+    syntaxHighlighting.enable = true;
+
+    # Extra Zsh config snippets
+    initContent = ''
+      # Optional: adjust colors for autosuggestions
+      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+    '';
   };
 
-  # STARSHIP
-
-  # KITTY
-  programs.kitty = {
-    enable = true;
-    font.name = "JetBrainsMono Nerd Font Mono";
-    font.size = 12;
-    theme = "Nordfox";
-    settings = {
-      scrollback_lines = 10000;
-      confirm_os_window_close = 0;
-      dynamic_background_opacity = true;
-      enable_audio_bell = false;
-      window_padding_width = 6;
-      background_opacity = "0.9";
-      background_blur = 3;
-    };
-  };
-
+  # PACKAGES
   home.packages = with pkgs; [
 
     # Internet
@@ -45,5 +39,8 @@
 
     # Editors
     neovim
+    kitty
+    kitty-themes
+  # starship
   ];
 }

@@ -17,6 +17,8 @@
           home-manager.useUserPackages = true;
           home-manager.useGlobalPkgs = true;
           home-manager.users.xpie = import ./home/xpie.nix;
+          home-manager.backupFileExtension = "bak";
+
         }
       ];
     };
