@@ -7,31 +7,18 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
-    let
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+    nixosConfigurations.nixblade = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      overlays = [
-        (import ./overlays/openrazer.nix)
+      modules = [
+        ./hosts/nixblade.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useUserPackages = true;
+          home-manager.useGlobalPkgs = true;
+          home-manager.users.xpie = import ./home/xpie.nix;
+        }
       ];
-      pkgs = import nixpkgs {
-        inherit system overlays;
-        config.allowUnfree = true;
-      };
-    in {
-      nixosConfigurations.nixblade = nixpkgs.lib.nixosSystem {
-        inherit system;
-
-        modules = [
-          ./hosts/nixblade.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useUserPackages = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.users.xpie = import ./home/xpie.nix;
-          }
-        ];
-
-        # ❌ No `overlays` or `pkgs` here
-      };
     };
+  };
 }

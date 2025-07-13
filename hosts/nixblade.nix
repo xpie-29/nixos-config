@@ -78,7 +78,7 @@
   users.users.xpie = {
     isNormalUser = true;
     group = "xpie";
-    extraGroups = [ "wheel" "networkmanager" "pludev" ];
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
   };
   users.groups.xpie = {};
