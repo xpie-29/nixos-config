@@ -63,12 +63,6 @@
     sof-firmware    # Intel Raptor Lake + SOF audio support
   ];
 
-  # OPENRAZER
-  hardware.openrazer = {
-    enable = true;
-    users = [ "xpie" ];
-  };
-
   # PRINTING
   services.printing.enable = true;
 
@@ -84,7 +78,7 @@
   users.users.xpie = {
     isNormalUser = true;
     group = "xpie";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "pludev" ];
     shell = pkgs.zsh;
   };
   users.groups.xpie = {};
@@ -103,6 +97,7 @@
     curl
     htop
     glxinfo
+    openrazer-daemon
     polychromatic # Razer laptop/peripherals lighting control
   ];
 

@@ -11,7 +11,7 @@
     let
       system = "x86_64-linux";
       overlays = [
-        (import ./overlays/openrazer-updated.nix)
+        (import ./overlays/openrazer.nix)
       ];
       pkgs = import nixpkgs {
         inherit system overlays;
