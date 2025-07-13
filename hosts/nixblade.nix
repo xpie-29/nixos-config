@@ -101,8 +101,6 @@
     curl
     htop
     glxinfo
-    openrazer-daemon
-    polychromatic # Razer laptop/peripherals lighting control
   ];
 
   # PROGRAMS
