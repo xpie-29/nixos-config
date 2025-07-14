@@ -2,8 +2,8 @@
   description = "NixOS with flakes and home-manager";
 
   inputs = {
-  #  nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+  #  nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

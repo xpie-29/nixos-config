@@ -42,20 +42,12 @@
   # PACKAGES
   home.packages = with pkgs; [
 
-    # Internet
-    vivaldi
-    vivaldi-ffmpeg-codecs
-    firefox
-
     # Editors
     neovim
     kitty
     kitty-themes
 
-    # Gaming
-    protonup-qt
-    discord
-
   # starship
+  
   ];
 }

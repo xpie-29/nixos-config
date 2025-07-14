@@ -91,6 +91,17 @@
 
   # SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [
+
+    # Internet
+    discord
+    vivaldi
+    vivaldi-ffmpeg-codecs
+
+    # Gaming
+    lutris
+    wine
+    winetricks
+
     # Editors
     vim
     nano
